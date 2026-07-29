@@ -1,0 +1,4 @@
+# Place your trained weights here as:
+# image_classifier_v01.pth
+#
+# If this file is missing, the API uses ResNet18 (ImageNet) mapped to cat/dog.

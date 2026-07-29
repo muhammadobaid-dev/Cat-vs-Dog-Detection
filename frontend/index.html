@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cat vs Dog Detection — Muhammad Ubaid</title>
+    <meta
+      name="description"
+      content="Upload a photo and let Muhammad Ubaid's ML model detect whether it's a cat or a dog."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <img
+          class="hero__img"
+          src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=2000&q=80"
+          alt=""
+        />
+        <div class="hero__veil"></div>
+      </div>
+
+      <nav class="nav">
+        <span class="nav__mark">Ubaid ML</span>
+        <a class="nav__link" href="#detect">Detect</a>
+      </nav>
+
+      <div class="hero__content">
+        <p class="brand">Muhammad Ubaid</p>
+        <h1 class="headline">Cat vs Dog Detection</h1>
+        <p class="lede">
+          Drop a photo. The model tells you if it’s a cat or a dog — instantly.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="#detect">Try the detector</a>
+          <a class="btn btn--ghost" href="#about">About the project</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="detect" class="detect">
+        <div class="detect__intro">
+          <h2>Upload &amp; detect</h2>
+          <p>JPG, PNG, or WEBP. Best results with a clear pet face.</p>
+        </div>
+
+        <div class="workspace">
+          <label class="dropzone" id="dropzone" for="fileInput">
+            <input
+              type="file"
+              id="fileInput"
+              accept="image/*"
+              hidden
+            />
+            <div class="dropzone__inner" id="dropInner">
+              <span class="dropzone__icon" aria-hidden="true"></span>
+              <strong>Drag a photo here</strong>
+              <span>or click to browse</span>
+            </div>
+            <img id="preview" class="preview" alt="Selected pet photo" hidden />
+          </label>
+
+          <div class="result" id="resultPanel" hidden>
+            <p class="result__eyebrow" id="resultEyebrow">Prediction</p>
+            <h3 class="result__label" id="resultLabel">—</h3>
+            <p class="result__confidence">
+              Confidence <strong id="resultConfidence">0%</strong>
+            </p>
+            <div class="meters" aria-label="Class scores">
+              <div class="meter">
+                <div class="meter__head">
+                  <span>Cat</span>
+                  <span id="catPct">0%</span>
+                </div>
+                <div class="meter__track">
+                  <div class="meter__fill meter__fill--cat" id="catBar"></div>
+                </div>
+              </div>
+              <div class="meter">
+                <div class="meter__head">
+                  <span>Dog</span>
+                  <span id="dogPct">0%</span>
+                </div>
+                <div class="meter__track">
+                  <div class="meter__fill meter__fill--dog" id="dogBar"></div>
+                </div>
+              </div>
+            </div>
+            <p class="result__meta" id="resultMeta"></p>
+          </div>
+        </div>
+
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="about" class="about">
+        <h2>Built by Muhammad Ubaid</h2>
+        <p>
+          A PyTorch CNN trained to classify cats and dogs, served through a
+          FastAPI backend so anyone can try the model in the browser.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Muhammad Ubaid · Cat vs Dog Detection ML Master</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
